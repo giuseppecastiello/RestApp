@@ -21,26 +21,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Button cucinaButton = findViewById(R.id.cucinaButton);
-        ImageButton cucinaImageButton = findViewById(R.id.cucinaImageButton);
-        cucinaButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent openCucina = new Intent(MainActivity.this,CucinaActivity.class);
-                startActivity(openCucina);
-            }
-        });
-        cucinaImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent openCucina = new Intent(MainActivity.this,CucinaActivity.class);
-                startActivity(openCucina);
-            }
-        });
-
-
     }
-
+    public void openSala(View view){
+        Intent openSala = new Intent(this,SalaActivity.class);
+        startActivity(openSala);
+    }
+    public void openCucina(View view){
+        Intent openCucina = new Intent(this,CucinaActivity.class);
+        startActivity(openCucina);
+    }
 
 
 
