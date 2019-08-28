@@ -30,7 +30,14 @@ public class MainActivity extends AppCompatActivity {
         Intent openCucina = new Intent(this,CucinaActivity.class);
         startActivity(openCucina);
     }
-
+    public void openCassa(View view){
+        Intent openCassa = new Intent(this,CassaActivity.class);
+        startActivity(openCassa);
+    }
+    public void openMagazzino(View view){
+        Intent openMagazzino = new Intent(this,MagazzinoActivity.class);
+        startActivity(openMagazzino);
+    }
 
 
 /*
