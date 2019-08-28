@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:scaleType="fitStart"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <ImageButton
+        android:id="@+id/cucinaImageButton"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/colorPrimaryDark"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/cucinaButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/salaImageButton"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/penne_al_sugo_di_pomodoro" />
+
+    <ImageButton
+        android:id="@+id/salaImageButton"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:background="@color/colorPrimaryDark"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/salaButton"
+        app:layout_constraintEnd_toStartOf="@+id/cucinaImageButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/sala_ristorante" />
+
+    <ImageButton
+        android:id="@+id/cassaImageButton"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimaryDark"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/cassaButton"
+        app:layout_constraintEnd_toEndOf="@+id/salaButton"
+        app:layout_constraintStart_toStartOf="@+id/salaButton"
+        app:layout_constraintTop_toBottomOf="@+id/salaButton"
+        app:srcCompat="@drawable/cassa" />
+
+    <ImageButton
+        android:id="@+id/magazzinoImageButton"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimaryDark"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/magazzinoButton"
+        app:layout_constraintEnd_toEndOf="@+id/cucinaButton"
+        app:layout_constraintStart_toStartOf="@+id/cucinaButton"
+        app:layout_constraintTop_toBottomOf="@+id/cucinaButton"
+        app:srcCompat="@drawable/magazzino_merci" />
+
+    <Button
+        android:id="@+id/cucinaButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="cucina"
+        app:layout_constraintBottom_toTopOf="@+id/magazzinoImageButton"
+        app:layout_constraintEnd_toEndOf="@+id/cucinaImageButton"
+        app:layout_constraintStart_toStartOf="@+id/cucinaImageButton"
+        app:layout_constraintTop_toBottomOf="@+id/cucinaImageButton" />
+
+    <Button
+        android:id="@+id/salaButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="sala"
+        app:layout_constraintBottom_toTopOf="@+id/cassaImageButton"
+        app:layout_constraintEnd_toEndOf="@+id/salaImageButton"
+        app:layout_constraintStart_toStartOf="@+id/salaImageButton"
+        app:layout_constraintTop_toBottomOf="@+id/salaImageButton" />
+
+    <Button
+        android:id="@+id/cassaButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="80dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="cassa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/cassaImageButton"
+        app:layout_constraintStart_toStartOf="@+id/cassaImageButton"
+        app:layout_constraintTop_toBottomOf="@+id/cassaImageButton" />
+
+    <Button
+        android:id="@+id/magazzinoButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="80dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="magazzino"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/magazzinoImageButton"
+        app:layout_constraintStart_toStartOf="@+id/magazzinoImageButton"
+        app:layout_constraintTop_toBottomOf="@+id/magazzinoImageButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
