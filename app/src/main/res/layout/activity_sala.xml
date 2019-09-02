@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -31,8 +32,8 @@
         android:id="@+id/logo"
         android:layout_width="32dp"
         android:layout_height="0dp"
-        android:layout_marginStart="78dp"
-        android:layout_marginLeft="78dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginLeft="54dp"
         android:layout_marginTop="7dp"
         android:layout_marginBottom="7dp"
         android:onClick="openMain"
@@ -51,7 +52,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
-        android:text="Cucina"
+        android:text="Sala"
         android:textColor="@color/colorAccent"
         android:textSize="22sp"
         android:textStyle="normal|bold"
@@ -61,19 +62,48 @@
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
     <ImageView
-        android:id="@+id/bevandeImageView"
+        android:id="@+id/ciboImageView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="80dp"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
-        android:onClick="openListaOrdiniCucina"
+        android:onClick="openNuovoOrdine"
         android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/ciboButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/button_add" />
+
+    <Button
+        android:id="@+id/ciboButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="openNuovoOrdine"
+        android:text="Nuovo ordine"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toTopOf="@+id/bevandeImageView"
+        app:layout_constraintEnd_toEndOf="@+id/ciboImageView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ciboImageView"
+        app:layout_constraintTop_toBottomOf="@+id/ciboImageView" />
+
+    <ImageView
+        android:id="@+id/bevandeImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:onClick="openListaOrdini"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/bevandeButton"
+        app:layout_constraintEnd_toEndOf="@+id/ciboButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ciboButton"
+        app:layout_constraintTop_toBottomOf="@+id/ciboButton"
         app:srcCompat="@drawable/button_list" />
 
     <Button
@@ -81,12 +111,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
+        android:layout_marginBottom="60dp"
         android:background="@color/colorPrimaryDark"
-        android:onClick="openListaOrdiniCucina"
+        android:onClick="openListaOrdini"
         android:text="Lista ordini"
         android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/bevandeImageView"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/bevandeImageView"
         app:layout_constraintTop_toBottomOf="@+id/bevandeImageView" />
 

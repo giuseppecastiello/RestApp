@@ -11,45 +11,47 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".SalaActivity"
-            android:label="@string/app_name"
+            android:name=".Sala.SalaActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
         </activity>
         <activity
-            android:name=".CucinaActivity"
-            android:label="@string/app_name"
+            android:name=".Cucina.CucinaActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
         </activity>
         <activity
-            android:name=".CassaActivity"
-            android:label="@string/app_name"
+            android:name=".Cassa.CassaActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
         </activity>
         <activity
-            android:name=".MagazzinoActivity"
-            android:label="@string/app_name"
+            android:name=".Magazzino.MagazzinoActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Sala.NuovoOrdine.NuovoOrdineActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".Sala.ListaOrdini.ListaOrdiniSalaActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".Cucina.ListaOrdiniCucinaActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".Sala.NuovoOrdine.Cibo.CiboActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".Sala.NuovoOrdine.Bevande.BevandeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 

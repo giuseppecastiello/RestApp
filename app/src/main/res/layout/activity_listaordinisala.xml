@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -21,7 +22,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:onClick="openMain"
+        android:onClick="openSala"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
@@ -31,8 +32,8 @@
         android:id="@+id/logo"
         android:layout_width="32dp"
         android:layout_height="0dp"
-        android:layout_marginStart="78dp"
-        android:layout_marginLeft="78dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginLeft="122dp"
         android:layout_marginTop="7dp"
         android:layout_marginBottom="7dp"
         android:onClick="openMain"
@@ -51,7 +52,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
-        android:text="Cucina"
+        android:text="Lista ordini"
         android:textColor="@color/colorAccent"
         android:textSize="22sp"
         android:textStyle="normal|bold"
@@ -60,34 +61,14 @@
         app:layout_constraintStart_toEndOf="@+id/backImageView"
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
-    <ImageView
-        android:id="@+id/bevandeImageView"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
-        android:onClick="openListaOrdiniCucina"
-        android:scaleType="centerInside"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="164dp"
+        android:layout_marginLeft="164dp"
+        android:layout_marginTop="332dp"
+        android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:srcCompat="@drawable/button_list" />
-
-    <Button
-        android:id="@+id/bevandeButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:background="@color/colorPrimaryDark"
-        android:onClick="openListaOrdiniCucina"
-        android:text="Lista ordini"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintEnd_toEndOf="@+id/bevandeImageView"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/bevandeImageView"
-        app:layout_constraintTop_toBottomOf="@+id/bevandeImageView" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
