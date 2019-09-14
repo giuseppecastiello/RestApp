@@ -1,12 +1,10 @@
-package it.managerestaurant.restapp.Magazzino;
+package it.managerestaurant.restapp.magazzino;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import it.managerestaurant.restapp.MainActivity;
 import it.managerestaurant.restapp.R;
 
 public class MagazzinoActivity extends AppCompatActivity {
@@ -16,7 +14,6 @@ public class MagazzinoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_magazzino);
     }
     public void openMain(View view){
-        Intent openMain = new Intent(this, MainActivity.class);
-        startActivity(openMain);
+        this.finish();
     }
 }

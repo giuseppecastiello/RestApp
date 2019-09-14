@@ -5,7 +5,6 @@
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -23,7 +22,6 @@
         android:layout_width="32dp"
         android:layout_height="0dp"
         android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
         android:layout_marginTop="7dp"
         android:layout_marginBottom="7dp"
         android:scaleType="fitStart"
@@ -33,7 +31,22 @@
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@mipmap/ic_launcher_round"
+        android:contentDescription="TODO" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="RestApp"
+        android:textColor="@color/colorAccent"
+        android:textSize="22sp"
+        android:textStyle="normal|bold"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toStartOf="@+id/logo"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
     <ImageButton
         android:id="@+id/cucinaImageButton"
@@ -41,10 +54,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:background="@color/colorPrimaryDark"
         android:onClick="openCucina"
         android:scaleType="fitXY"
@@ -52,7 +63,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/salaImageButton"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:srcCompat="@drawable/penne_al_sugo_di_pomodoro" />
+        app:srcCompat="@drawable/penne_al_sugo_di_pomodoro"
+        android:contentDescription="TODO" />
 
     <ImageButton
         android:id="@+id/salaImageButton"
@@ -60,10 +72,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
         android:background="@color/colorPrimaryDark"
         android:onClick="openSala"
         android:scaleType="fitXY"
@@ -71,7 +81,8 @@
         app:layout_constraintEnd_toStartOf="@+id/cucinaImageButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:srcCompat="@drawable/sala_ristorante" />
+        app:srcCompat="@drawable/sala_ristorante"
+        android:contentDescription="TODO" />
 
     <ImageButton
         android:id="@+id/cassaImageButton"
@@ -86,7 +97,8 @@
         app:layout_constraintEnd_toEndOf="@+id/salaButton"
         app:layout_constraintStart_toStartOf="@+id/salaButton"
         app:layout_constraintTop_toBottomOf="@+id/salaButton"
-        app:srcCompat="@drawable/cassa" />
+        app:srcCompat="@drawable/cassa"
+        android:contentDescription="TODO" />
 
     <ImageButton
         android:id="@+id/magazzinoImageButton"
@@ -101,7 +113,8 @@
         app:layout_constraintEnd_toEndOf="@+id/cucinaButton"
         app:layout_constraintStart_toStartOf="@+id/cucinaButton"
         app:layout_constraintTop_toBottomOf="@+id/cucinaButton"
-        app:srcCompat="@drawable/magazzino_merci" />
+        app:srcCompat="@drawable/magazzino_merci"
+        android:contentDescription="TODO" />
 
     <Button
         android:id="@+id/cucinaButton"
@@ -162,20 +175,5 @@
         app:layout_constraintEnd_toEndOf="@+id/magazzinoImageButton"
         app:layout_constraintStart_toStartOf="@+id/magazzinoImageButton"
         app:layout_constraintTop_toBottomOf="@+id/magazzinoImageButton" />
-
-    <TextView
-        android:id="@+id/titleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="RestApp"
-        android:textColor="@color/colorAccent"
-        android:textSize="22dp"
-        android:textStyle="normal|bold"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintEnd_toStartOf="@+id/logo"
-        app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

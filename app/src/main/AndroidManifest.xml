@@ -11,47 +11,109 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".Sala.SalaActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".sala.SalaActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Cucina.CucinaActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".cucina.CucinaActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Cassa.CassaActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".cassa.CassaActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Magazzino.MagazzinoActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".magazzino.MagazzinoActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Sala.NuovoOrdine.NuovoOrdineActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".sala.nuovo_ordine.NuovoOrdineActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Sala.ListaOrdini.ListaOrdiniSalaActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".sala.lista_ordini.ListaOrdiniSalaActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Cucina.ListaOrdiniCucinaActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".cucina.ListaOrdiniCucinaActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Sala.NuovoOrdine.Cibo.CiboActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".sala.nuovo_ordine.cibo.CiboActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".Sala.NuovoOrdine.Bevande.BevandeActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".sala.nuovo_ordine.bevande.BevandeActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".sala.nuovo_ordine.bevande.BibiteAnalcolicheActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".sala.nuovo_ordine.bevande.ViniActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".sala.nuovo_ordine.bevande.BirreActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".sala.nuovo_ordine.cibo.AntipastoActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".sala.nuovo_ordine.cibo.PrimoPiattoActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".sala.nuovo_ordine.cibo.SecondoPiattoActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".sala.nuovo_ordine.cibo.DolceActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

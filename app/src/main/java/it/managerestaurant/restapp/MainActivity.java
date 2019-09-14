@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
-import it.managerestaurant.restapp.Cassa.CassaActivity;
-import it.managerestaurant.restapp.Cucina.CucinaActivity;
-import it.managerestaurant.restapp.Magazzino.MagazzinoActivity;
-import it.managerestaurant.restapp.Sala.SalaActivity;
+import it.managerestaurant.restapp.cassa.CassaActivity;
+import it.managerestaurant.restapp.cucina.CucinaActivity;
+import it.managerestaurant.restapp.magazzino.MagazzinoActivity;
+import it.managerestaurant.restapp.sala.SalaActivity;
 
 
 public class MainActivity extends AppCompatActivity {

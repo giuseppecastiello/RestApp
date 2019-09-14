@@ -1,4 +1,4 @@
-package it.managerestaurant.restapp.Cucina;
+package it.managerestaurant.restapp.cucina;
 
 import android.content.Intent;
 import android.os.Bundle;

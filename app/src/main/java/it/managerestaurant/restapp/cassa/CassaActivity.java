@@ -1,12 +1,10 @@
-package it.managerestaurant.restapp.Cassa;
+package it.managerestaurant.restapp.cassa;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import it.managerestaurant.restapp.MainActivity;
 import it.managerestaurant.restapp.R;
 
 public class CassaActivity extends AppCompatActivity {
@@ -16,7 +14,6 @@ public class CassaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cassa);
     }
     public void openMain(View view){
-        Intent openMain = new Intent(this, MainActivity.class);
-        startActivity(openMain);
+        this.finish();
     }
 }

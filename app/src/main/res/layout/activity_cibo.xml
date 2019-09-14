@@ -36,7 +36,7 @@
         android:layout_marginTop="7dp"
         android:layout_marginBottom="7dp"
         android:contentDescription="Logo"
-        android:onClick="openMain"
+        android:onClick="openNuovoOrdine"
         android:scaleType="fitStart"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintStart_toEndOf="@+id/backImageView"
@@ -61,25 +61,131 @@
         app:layout_constraintStart_toEndOf="@+id/backImageView"
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
-    <EditText
-        android:id="@+id/editTextInserisci"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="124dp"
-        android:ems="10"
-        android:inputType="textPersonName"
+    <ImageButton
+        android:id="@+id/primoPiattoImageButton"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorPrimaryDark"
+        android:contentDescription="TODO"
+        android:onClick="openPrimoPiatto"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/primoPiattoButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/antipastoImageButton"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/penne_al_sugo_di_pomodoro" />
+
+    <ImageButton
+        android:id="@+id/antipastoImageButton"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="2dp"
+        android:background="@color/colorPrimaryDark"
+        android:contentDescription="TODO"
+        android:onClick="openAntipasto"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/antipastoButton"
+        app:layout_constraintEnd_toStartOf="@+id/primoPiattoImageButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/antipasto" />
+
+    <ImageButton
+        android:id="@+id/secondoPiattoImageButton"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimaryDark"
+        android:contentDescription="TODO"
+        android:onClick="openSecondoPiatto"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/vinoButton"
+        app:layout_constraintEnd_toEndOf="@+id/antipastoButton"
+        app:layout_constraintStart_toStartOf="@+id/antipastoButton"
+        app:layout_constraintTop_toBottomOf="@+id/antipastoButton"
+        app:srcCompat="@drawable/secondo_piatto" />
+
+    <ImageButton
+        android:id="@+id/dolceImageButton"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimaryDark"
+        android:contentDescription="TODO"
+        android:onClick="openDolce"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/dolceButton"
+        app:layout_constraintEnd_toEndOf="@+id/primoPiattoButton"
+        app:layout_constraintStart_toStartOf="@+id/primoPiattoButton"
+        app:layout_constraintTop_toBottomOf="@+id/primoPiattoButton"
+        app:srcCompat="@drawable/dolce" />
 
     <Button
-        android:id="@+id/buttonInvia"
-        android:layout_width="wrap_content"
+        android:id="@+id/primoPiattoButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="154dp"
-        android:layout_marginTop="68dp"
-        android:text="Invia"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextInserisci" />
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="openPrimoPiatto"
+        android:text="primi piatti"
+        app:layout_constraintBottom_toTopOf="@+id/dolceImageButton"
+        app:layout_constraintEnd_toEndOf="@+id/primoPiattoImageButton"
+        app:layout_constraintStart_toStartOf="@+id/primoPiattoImageButton"
+        app:layout_constraintTop_toBottomOf="@+id/primoPiattoImageButton" />
+
+    <Button
+        android:id="@+id/antipastoButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="openAntipasto"
+        android:text="antipasti"
+        app:layout_constraintBottom_toTopOf="@+id/secondoPiattoImageButton"
+        app:layout_constraintEnd_toEndOf="@+id/antipastoImageButton"
+        app:layout_constraintStart_toStartOf="@+id/antipastoImageButton"
+        app:layout_constraintTop_toBottomOf="@+id/antipastoImageButton" />
+
+    <Button
+        android:id="@+id/vinoButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="openSecondoPiatto"
+        android:text="secondi piatti"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/secondoPiattoImageButton"
+        app:layout_constraintStart_toStartOf="@+id/secondoPiattoImageButton"
+        app:layout_constraintTop_toBottomOf="@+id/secondoPiattoImageButton" />
+
+    <Button
+        android:id="@+id/dolceButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="80dp"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="openDolce"
+        android:text="dolci"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dolceImageButton"
+        app:layout_constraintStart_toStartOf="@+id/dolceImageButton"
+        app:layout_constraintTop_toBottomOf="@+id/dolceImageButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

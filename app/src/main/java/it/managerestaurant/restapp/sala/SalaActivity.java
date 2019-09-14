@@ -1,4 +1,4 @@
-package it.managerestaurant.restapp.Sala;
+package it.managerestaurant.restapp.sala;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,10 +6,9 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import it.managerestaurant.restapp.MainActivity;
 import it.managerestaurant.restapp.R;
-import it.managerestaurant.restapp.Sala.ListaOrdini.ListaOrdiniSalaActivity;
-import it.managerestaurant.restapp.Sala.NuovoOrdine.NuovoOrdineActivity;
+import it.managerestaurant.restapp.sala.lista_ordini.ListaOrdiniSalaActivity;
+import it.managerestaurant.restapp.sala.nuovo_ordine.NuovoOrdineActivity;
 
 public class SalaActivity extends AppCompatActivity {
     @Override
@@ -18,8 +17,7 @@ public class SalaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sala);
     }
     public void openMain(View view){
-        Intent openMain = new Intent(this, MainActivity.class);
-        startActivity(openMain);
+        this.finish();
     }
     public void openNuovoOrdine(View view){
         Intent openNuovoOrdine = new Intent(this, NuovoOrdineActivity.class);
