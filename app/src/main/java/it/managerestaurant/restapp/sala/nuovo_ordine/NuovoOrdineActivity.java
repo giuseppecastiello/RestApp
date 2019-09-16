@@ -26,7 +26,7 @@ public class NuovoOrdineActivity extends AppCompatActivity {
 		int idcameriere = Integer.parseInt(idcameriereString);
 		TextView prova = findViewById(R.id.textView7);
 		prova.setText(ntavolo + " " + idcameriere);
-		//commento lungo  h
+		//commento lungo  h costi
 	}
 
 
