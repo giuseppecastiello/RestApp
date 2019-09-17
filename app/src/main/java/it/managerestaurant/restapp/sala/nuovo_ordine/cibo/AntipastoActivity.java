@@ -1,9 +1,14 @@
 package it.managerestaurant.restapp.sala.nuovo_ordine.cibo;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,27 +23,30 @@ import it.managerestaurant.restapp.Oggetti_da_db.CustomAdapter;
 import it.managerestaurant.restapp.Oggetti_da_db.Prodotto;
 import it.managerestaurant.restapp.R;
 import it.managerestaurant.restapp.task_html.AsyncTaskGet;
+import it.managerestaurant.restapp.task_html.AsyncTaskPost;
 
 public class AntipastoActivity extends AppCompatActivity {
+	int ntavolo;
+	Prodotto prodotto;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_antipasto);
-
+		ntavolo = getIntent().getExtras().getInt("ntavolo");
 		final ListView ListAntipasti = findViewById(R.id.ListAntipasti);
-		fillListAntipasti(ListAntipasti);
+		fillList(ListAntipasti);
 		ListAntipasti.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> adattatore, final View componente, int pos, long id){
 				// recupero il titolo memorizzato nella riga tramite l'ArrayAdapter
-				final Prodotto selected = (Prodotto) adattatore.getItemAtPosition(pos);
-				System.out.println("Ho cliccato sull'elemento con titolo " + selected);
-
+				 prodotto = (Prodotto) adattatore.getItemAtPosition(pos);
+				//System.out.println("Ho cliccato sull'elemento con titolo " + selected);
+				showAddQuantitaDialog(AntipastoActivity.this);
 			}
 		});
 	}
 
-	private void fillListAntipasti(ListView ListAntipasti) {
+	private void fillList(ListView ListAntipasti) {
 		AsyncTaskGet task = new AsyncTaskGet();
 		task.setUri("prodotto/Antipasto");
 		task.execute();
@@ -65,9 +73,49 @@ public class AntipastoActivity extends AppCompatActivity {
 			e.printStackTrace();
 		}
 	}
+
 	public void openCibo(View view){
 		Intent openCibo = new Intent(this, CiboActivity.class);
 		startActivity(openCibo);
 	}
 
+	private void showAddQuantitaDialog(final Context c) {
+		final AlertDialog.Builder dialog = new AlertDialog.Builder(c);
+		final EditText dialogView = new EditText(c);
+		dialogView.setText("1");
+		dialogView.setInputType(InputType.TYPE_CLASS_NUMBER);
+		dialogView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+		dialog.setTitle("Quantità")
+				.setMessage("Inserisci la quantità")
+				.setView(dialogView);
+		dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialogInt, int which) {
+				String quantitaString = String.valueOf(dialogView.getText());
+				int quantita = Integer.parseInt(quantitaString);
+				if (quantita > 0)
+					inserisciProdotto(ntavolo,prodotto.getIdp(),quantita);
+				else
+					showInputErrorDialog(c);
+			}
+		})
+				.setNegativeButton("Annulla", null)
+				.create();
+		dialog.show();
+	}
+
+	private void showInputErrorDialog(Context c){
+		AlertDialog.Builder dialog = new AlertDialog.Builder(c);
+		dialog.setTitle("Errore")
+				.setMessage("La quantità deve essere positiva")
+				.setPositiveButton("Ok", null)
+				.create()
+				.show();
+	}
+
+	private void inserisciProdotto(int ntavolo, int idp, int quantita){
+		AsyncTaskPost task = new AsyncTaskPost();
+		task.setUri(String.format("contiene/add?ntavolo=%d&idp=%d&quantita=%d",ntavolo,idp,quantita));
+		task.execute();
+	}
 }

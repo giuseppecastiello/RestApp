@@ -16,21 +16,24 @@ import it.managerestaurant.restapp.task_html.AsyncTaskDelete;
 import it.managerestaurant.restapp.task_html.AsyncTaskPost;
 
 public class NuovoOrdineActivity extends AppCompatActivity {
-	Ordine o;
+	Ordine ordine;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_nuovoordine);
 		String ntavoloString = getIntent().getExtras().getString("ntavolo");
 		String idcameriereString = getIntent().getExtras().getString("idcameriere");
-		o = new Ordine(Integer.parseInt(ntavoloString),Integer.parseInt(idcameriereString),0);
+		ordine = new Ordine(Integer.parseInt(ntavoloString),Integer.parseInt(idcameriereString),0);
+		addOrder(ordine);
+	}
+
+	private void addOrder(Ordine ordine){
 		AsyncTaskPost task  = new AsyncTaskPost();
-		task.setUri(String.format("ordine/add?ntavolo=%d&idcameriere=%d",o.getNtavolo(),o.getIdcameriere()));
+		task.setUri(String.format("ordine/add?ntavolo=%d&idcameriere=%d",ordine.getNtavolo(),ordine.getIdcameriere()));
 		task.execute();
 	}
 
 	public void cancelOrderSala(View view){
-		//TODO: implementa l'annullamento dell'ordine
 		DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which)
@@ -49,19 +52,21 @@ public class NuovoOrdineActivity extends AppCompatActivity {
 		builder.setMessage("Sei sicuro? Tornando indietro l'ordine sarà annullato!").setPositiveButton("Torna", dialogClickListener)
 				.setNegativeButton("Rimani", dialogClickListener).show();
 	}
-	public void returnSala(){
+	private void returnSala(){
 		AsyncTaskDelete task  = new AsyncTaskDelete();
-		task.setUri(String.format("ordine/delete/%d",o.getNtavolo()));
+		task.setUri(String.format("ordine/delete/%d",ordine.getNtavolo()));
 		task.execute();
 		this.finish();
 	}
 
 	public void openCibo(View view){
 		Intent openCibo = new Intent(this, CiboActivity.class);
+		openCibo.putExtra("ntavolo",ordine.getNtavolo());
 		startActivity(openCibo);
 	}
 	public void openBevande(View view){
 		Intent openBevande = new Intent(this, BevandeActivity.class);
+		openBevande.putExtra("ntavolo",ordine.getNtavolo());
 		startActivity(openBevande);
 	}
 	public void confirmOrder(View view){
