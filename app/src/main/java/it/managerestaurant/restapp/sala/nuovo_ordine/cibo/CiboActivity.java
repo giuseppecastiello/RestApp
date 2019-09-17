@@ -7,43 +7,44 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import it.managerestaurant.restapp.R;
-import it.managerestaurant.restapp.sala.nuovo_ordine.NuovoOrdineActivity;
 
 public class CiboActivity extends AppCompatActivity {
-    int ntavolo;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cibo);
-        ntavolo = getIntent().getExtras().getInt("ntavolo");
-    }
+	int ntavolo;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_cibo);
+		ntavolo = getIntent().getExtras().getInt("ntavolo");
+	}
 
-    public void openNuovoOrdine(View view){
-        Intent openNuovoOrdine = new Intent(this, NuovoOrdineActivity.class);
-        startActivity(openNuovoOrdine);
-    }
+	public void openNuovoOrdine(View view){ this.finish(); }
 
-    public void openAntipasto(View view){
-        Intent openAntipasto = new Intent(this, AntipastoActivity.class);
-        openAntipasto.putExtra("ntavolo", ntavolo);
-        startActivity(openAntipasto);
-    }
+	public void openAntipasto(View view){
+		Intent openDettaglioCibo= new Intent(this, DettaglioCiboActivity.class);
+		openDettaglioCibo.putExtra("tipo", "Antipasto");
+		openDettaglioCibo.putExtra("ntavolo", ntavolo);
+		startActivity(openDettaglioCibo);
+	}
 
-    public void openPrimoPiatto(View view){
-        Intent openPrimoPiatto = new Intent(this, PrimoPiattoActivity.class);
-        openPrimoPiatto.putExtra("ntavolo", ntavolo);
-        startActivity(openPrimoPiatto);
-    }
+	public void openPrimoPiatto(View view){
+		Intent openDettaglioCibo= new Intent(this, DettaglioCiboActivity.class);
+		openDettaglioCibo.putExtra("tipo", "Primo piatto");
+		openDettaglioCibo.putExtra("ntavolo", ntavolo);
+		startActivity(openDettaglioCibo);
+	}
 
-    public void openSecondoPiatto(View view){
-        Intent openSecondoPiatto = new Intent(this, SecondoPiattoActivity.class);
-        openSecondoPiatto.putExtra("ntavolo", ntavolo);
-        startActivity(openSecondoPiatto);
-    }
+	public void openSecondoPiatto(View view){
+		Intent openDettaglioCibo= new Intent(this, DettaglioCiboActivity.class);
+		openDettaglioCibo.putExtra("tipo", "Secondo piatto");
+		openDettaglioCibo.putExtra("ntavolo", ntavolo);
+		startActivity(openDettaglioCibo);
+	}
 
-    public void openDolce(View view){
-        Intent openDolce = new Intent(this, DolceActivity.class);
-        openDolce.putExtra("ntavolo", ntavolo);
-        startActivity(openDolce);
-    }
+	public void openDolce(View view){
+		Intent openDettaglioCibo= new Intent(this, DettaglioCiboActivity.class);
+		openDettaglioCibo.putExtra("tipo", "Dolce");
+		openDettaglioCibo.putExtra("ntavolo", ntavolo);
+		startActivity(openDettaglioCibo);
+	}
+
 }

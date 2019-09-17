@@ -31,7 +31,7 @@
         app:srcCompat="@drawable/cancella" />
 
     <TextView
-        android:id="@+id/titleTextView"
+        android:id="@+id/nuovoordineTitle"
         android:layout_width="134dp"
         android:layout_height="wrap_content"
         android:text="Nuovo ordine"

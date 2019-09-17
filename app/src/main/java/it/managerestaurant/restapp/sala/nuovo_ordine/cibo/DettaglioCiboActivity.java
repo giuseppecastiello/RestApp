@@ -3,13 +3,13 @@ package it.managerestaurant.restapp.sala.nuovo_ordine.cibo;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,14 +25,19 @@ import it.managerestaurant.restapp.R;
 import it.managerestaurant.restapp.task_html.AsyncTaskGet;
 import it.managerestaurant.restapp.task_html.AsyncTaskPost;
 
-public class AntipastoActivity extends AppCompatActivity {
+public class DettaglioCiboActivity extends AppCompatActivity {
+	String tipo;
 	int ntavolo;
 	Prodotto prodotto;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_antipasto);
+		setContentView(R.layout.activity_dettaglio_cibo);
+		tipo = getIntent().getExtras().getString("tipo");
 		ntavolo = getIntent().getExtras().getInt("ntavolo");
+		TextView dettaglioCiboTitle = findViewById(R.id.dettaglioCiboTitle);
+		dettaglioCiboTitle.setText(tipo);
 		final ListView ListAntipasti = findViewById(R.id.ListAntipasti);
 		fillList(ListAntipasti);
 		ListAntipasti.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -41,14 +46,20 @@ public class AntipastoActivity extends AppCompatActivity {
 				// recupero il titolo memorizzato nella riga tramite l'ArrayAdapter
 				 prodotto = (Prodotto) adattatore.getItemAtPosition(pos);
 				//System.out.println("Ho cliccato sull'elemento con titolo " + selected);
-				showAddQuantitaDialog(AntipastoActivity.this);
+				showAddQuantitaDialog(DettaglioCiboActivity.this);
 			}
 		});
 	}
 
+	public void openCibo(View view){ this.finish();	}
+
+	private String uriTipo(String tipo){
+		return tipo.replace(" ","_");
+	}
+
 	private void fillList(ListView ListAntipasti) {
 		AsyncTaskGet task = new AsyncTaskGet();
-		task.setUri("prodotto/Antipasto");
+		task.setUri(String.format("prodotto/%s", uriTipo(tipo)));
 		task.execute();
 		try {
 			while (!task.ready) {
@@ -72,11 +83,6 @@ public class AntipastoActivity extends AppCompatActivity {
 		catch (Exception e){
 			e.printStackTrace();
 		}
-	}
-
-	public void openCibo(View view){
-		Intent openCibo = new Intent(this, CiboActivity.class);
-		startActivity(openCibo);
 	}
 
 	private void showAddQuantitaDialog(final Context c) {

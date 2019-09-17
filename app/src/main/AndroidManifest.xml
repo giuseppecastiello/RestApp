@@ -74,43 +74,13 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".sala.nuovo_ordine.bevande.BibiteAnalcolicheActivity"
+            android:name=".sala.nuovo_ordine.bevande.DettaglioBevandeActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".sala.nuovo_ordine.bevande.ViniActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".sala.nuovo_ordine.bevande.BirreActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".sala.nuovo_ordine.cibo.AntipastoActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".sala.nuovo_ordine.cibo.PrimoPiattoActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".sala.nuovo_ordine.cibo.SecondoPiattoActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".sala.nuovo_ordine.cibo.DolceActivity"
+            android:name=".sala.nuovo_ordine.cibo.DettaglioCiboActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">

@@ -7,7 +7,6 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import it.managerestaurant.restapp.R;
-import it.managerestaurant.restapp.sala.nuovo_ordine.NuovoOrdineActivity;
 
 public class BevandeActivity extends AppCompatActivity {
     @Override
@@ -16,20 +15,23 @@ public class BevandeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bevande);
     }
 
-    public void openNuovoOrdine(View view){
-        Intent openNuovoOrdine = new Intent(this, NuovoOrdineActivity.class);
-        startActivity(openNuovoOrdine);
-    }
+    public void openNuovoOrdine(View view){ this.finish(); }
+
     public void openBibiteAnalcoliche(View view){
-        Intent openBibiteAnalcoliche = new Intent(this, BibiteAnalcolicheActivity.class);
-        startActivity(openBibiteAnalcoliche);
+        Intent openDettaglioBevande= new Intent(this, DettaglioBevandeActivity.class);
+        openDettaglioBevande.putExtra("tipo","Bibita analcolica");
+        startActivity(openDettaglioBevande);
     }
+
     public void openVini(View view){
-        Intent openVini = new Intent(this, ViniActivity.class);
-        startActivity(openVini);
+        Intent openDettaglioBevande= new Intent(this, DettaglioBevandeActivity.class);
+        openDettaglioBevande.putExtra("tipo","Vino");
+        startActivity(openDettaglioBevande);
     }
+
     public void openBirre(View view){
-        Intent openBirre = new Intent(this, BirreActivity.class);
-        startActivity(openBirre);
+        Intent openDettaglioBevande= new Intent(this, DettaglioBevandeActivity.class);
+        openDettaglioBevande.putExtra("tipo","Birra");
+        startActivity(openDettaglioBevande);
     }
 }
