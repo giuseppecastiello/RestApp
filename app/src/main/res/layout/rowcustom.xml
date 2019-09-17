@@ -10,9 +10,10 @@
         android:id="@+id/textViewName"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="26dp"
         android:layout_marginTop="2dp"
         android:text="ciao"
+        android:textSize="26sp"
         app:layout_constraintEnd_toStartOf="@+id/textViewPrice"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ciao"
+        android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

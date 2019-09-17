@@ -22,7 +22,7 @@ public class AsyncTaskDelete extends AsyncTask<String, Void, Boolean> {
 	protected Boolean doInBackground (String...urls) {
 		try {
 			json = Unirest.delete(url).asString().getBody();
-			System.out.println(json);
+			//System.out.println(json);
 			ready = true;
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -22,7 +22,7 @@ public class AsyncTaskPut extends AsyncTask<String, Void, Boolean> {
 	protected Boolean doInBackground (String...urls) {
 		try {
 			json = Unirest.put(url).asString().getBody();
-			System.out.println(json);
+			//System.out.println(json);
 			ready = true;
 		} catch (Exception e) {
 			e.printStackTrace();

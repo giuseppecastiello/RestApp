@@ -19,47 +19,28 @@
 
     <ImageView
         android:id="@+id/backImageView"
-        android:layout_width="24dp"
+        android:layout_width="60dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
         android:contentDescription="TODO"
         android:onClick="cancelOrderSala"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:srcCompat="@drawable/freccia_indietro" />
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="32dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginBottom="7dp"
-        android:contentDescription="TODO"
-        android:onClick="cancelOrderMain"
-        android:scaleType="fitStart"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintStart_toEndOf="@+id/backImageView"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@drawable/cancella" />
 
     <TextView
         android:id="@+id/titleTextView"
-        android:layout_width="0dp"
+        android:layout_width="134dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
         android:text="Nuovo ordine"
         android:textColor="@color/colorAccent"
         android:textSize="22sp"
         android:textStyle="normal|bold"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintEnd_toStartOf="@+id/logo"
-        app:layout_constraintStart_toEndOf="@+id/backImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/backImageView"
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
     <ImageView
@@ -71,14 +52,14 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
+        android:contentDescription="TODO"
         android:onClick="openCibo"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/ciboButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:srcCompat="@drawable/cibo"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/cibo" />
 
     <Button
         android:id="@+id/ciboButton"
@@ -99,6 +80,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="30dp"
+        android:contentDescription="TODO"
         android:onClick="openBevande"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/bevandeButton"
@@ -106,8 +88,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/ciboButton"
         app:layout_constraintTop_toBottomOf="@+id/ciboButton"
-        app:srcCompat="@drawable/bibite"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/bibite" />
 
     <Button
         android:id="@+id/bevandeButton"
@@ -127,6 +108,8 @@
         android:id="@+id/imageView"
         android:layout_width="60dp"
         android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
         android:onClick="confirmOrder"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
