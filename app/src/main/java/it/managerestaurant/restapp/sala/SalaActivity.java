@@ -58,5 +58,4 @@ public class SalaActivity extends AppCompatActivity {
                 .create();
         dialog.show();
     }
-
 }
