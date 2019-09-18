@@ -27,36 +27,16 @@
         app:srcCompat="@drawable/freccia_indietro"
         android:contentDescription="TODO" />
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="32dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="78dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginBottom="7dp"
-        android:onClick="openMain"
-        android:scaleType="fitStart"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintStart_toEndOf="@+id/backImageView"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@mipmap/ic_launcher_round"
-        android:contentDescription="TODO" />
-
     <TextView
         android:id="@+id/cucinaTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
         android:text="Cucina"
         android:textColor="@color/colorAccent"
         android:textSize="22sp"
         android:textStyle="normal|bold"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintEnd_toStartOf="@+id/logo"
         app:layout_constraintStart_toEndOf="@+id/backImageView"
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
 

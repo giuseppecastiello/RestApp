@@ -3,13 +3,15 @@ package it.managerestaurant.restapp.Oggetti_da_db;
 public class Ordine {
 	int ntavolo;
 	int idcameriere;
-	int pronto;
 
-	public Ordine(int ntavolo, int idcameriere, int pronto) {
+	public Ordine (){
+
+	}
+
+	public Ordine(int ntavolo, int idcameriere) {
 		super();
-		this.ntavolo = ntavolo;
 		this.idcameriere = idcameriere;
-		this.pronto = pronto;
+		this.ntavolo = ntavolo;
 
 	}
 
@@ -29,16 +31,9 @@ public class Ordine {
 		this.ntavolo = ntavolo;
 	}
 
-	public int isPronto() {
-		return pronto;
-	}
-
-	public void setPronto(int pronto) {
-		this.pronto = pronto;
-	}
-
 	@Override
 	public String toString() {
-		return "Ordine [ntavolo=" + ntavolo + ", idcameriere=" + idcameriere + ", pronto=" + pronto + "]";
+		return Integer.toString(ntavolo);//"Ordine [ntavolo=" + ntavolo + ", idcameriere=" + idcameriere + "]";
 	}
+
 }

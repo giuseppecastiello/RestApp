@@ -6,7 +6,6 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import it.managerestaurant.restapp.MainActivity;
 import it.managerestaurant.restapp.R;
 
 public class ListaOrdiniCucinaActivity extends AppCompatActivity {
@@ -14,10 +13,6 @@ public class ListaOrdiniCucinaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listaordinicucina);
-    }
-    public void openMain(View view){
-        Intent openMain = new Intent(this, MainActivity.class);
-        startActivity(openMain);
     }
     public void openCucina(View view){
         Intent openCucina = new Intent(this, CucinaActivity.class);

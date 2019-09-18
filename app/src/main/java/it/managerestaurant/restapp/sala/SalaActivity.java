@@ -21,6 +21,7 @@ public class SalaActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sala);
 	}
+
 	public void openMain(View view){
 		this.finish();
 	}

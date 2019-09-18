@@ -23,7 +23,7 @@ public class NuovoOrdineActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_nuovoordine);
 		String ntavoloString = getIntent().getExtras().getString("ntavolo");
 		String idcameriereString = getIntent().getExtras().getString("idcameriere");
-		ordine = new Ordine(Integer.parseInt(ntavoloString),Integer.parseInt(idcameriereString),0);
+		ordine = new Ordine(Integer.parseInt(ntavoloString),Integer.parseInt(idcameriereString));
 		addOrder(ordine);
 	}
 

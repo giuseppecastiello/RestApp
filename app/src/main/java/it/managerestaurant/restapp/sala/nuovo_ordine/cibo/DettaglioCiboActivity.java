@@ -38,14 +38,12 @@ public class DettaglioCiboActivity extends AppCompatActivity {
 		ntavolo = getIntent().getExtras().getInt("ntavolo");
 		TextView dettaglioCiboTitle = findViewById(R.id.dettaglioCiboTitle);
 		dettaglioCiboTitle.setText(tipo);
-		final ListView ListAntipasti = findViewById(R.id.ListAntipasti);
-		fillList(ListAntipasti);
-		ListAntipasti.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		final ListView listDettaglio = findViewById(R.id.listDettaglio);
+		fillList(listDettaglio);
+		listDettaglio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> adattatore, final View componente, int pos, long id){
-				// recupero il titolo memorizzato nella riga tramite l'ArrayAdapter
 				 prodotto = (Prodotto) adattatore.getItemAtPosition(pos);
-				//System.out.println("Ho cliccato sull'elemento con titolo " + selected);
 				showAddQuantitaDialog(DettaglioCiboActivity.this);
 			}
 		});
@@ -57,7 +55,7 @@ public class DettaglioCiboActivity extends AppCompatActivity {
 		return tipo.replace(" ","_");
 	}
 
-	private void fillList(ListView ListAntipasti) {
+	private void fillList(ListView listDettaglio) {
 		AsyncTaskGet task = new AsyncTaskGet();
 		task.setUri(String.format("prodotto/%s", uriTipo(tipo)));
 		task.execute();
@@ -73,12 +71,11 @@ public class DettaglioCiboActivity extends AppCompatActivity {
 			if (jsArr != null) {
 				for (int i = 0; i < jsArr.length(); i++){
 					p = om.readValue(jsArr.get(i).toString(),Prodotto.class);
-					System.out.println(p.toString());
 					l.add(p);
 				}
 			}
 			CustomAdapter adapter = new CustomAdapter(this,R.layout.rowcustom,l);
-			ListAntipasti.setAdapter(adapter);
+			listDettaglio.setAdapter(adapter);
 		}
 		catch (Exception e){
 			e.printStackTrace();
