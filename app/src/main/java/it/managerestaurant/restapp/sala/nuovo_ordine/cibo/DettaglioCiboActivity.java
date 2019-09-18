@@ -19,8 +19,8 @@ import org.json.JSONArray;
 
 import java.util.ArrayList;
 
-import it.managerestaurant.restapp.Oggetti_da_db.CustomAdapter;
-import it.managerestaurant.restapp.Oggetti_da_db.Prodotto;
+import it.managerestaurant.restapp.utility.AdapterProdottoNomePrezzo;
+import it.managerestaurant.restapp.utility.Prodotto;
 import it.managerestaurant.restapp.R;
 import it.managerestaurant.restapp.task_html.AsyncTaskGet;
 import it.managerestaurant.restapp.task_html.AsyncTaskPost;
@@ -38,7 +38,7 @@ public class DettaglioCiboActivity extends AppCompatActivity {
 		ntavolo = getIntent().getExtras().getInt("ntavolo");
 		TextView dettaglioCiboTitle = findViewById(R.id.dettaglioCiboTitle);
 		dettaglioCiboTitle.setText(tipo);
-		final ListView listDettaglio = findViewById(R.id.listDettaglio);
+		final ListView listDettaglio = findViewById(R.id.listDettaglioCibo);
 		fillList(listDettaglio);
 		listDettaglio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
@@ -63,7 +63,6 @@ public class DettaglioCiboActivity extends AppCompatActivity {
 			while (!task.ready) {
 				Thread.sleep(100);
 			}
-			//System.out.println("Non mi sono inchiodato");
 			JSONArray jsArr = new JSONArray(task.json);
 			ArrayList<Prodotto> l = new ArrayList<>();
 			Prodotto p;
@@ -74,7 +73,7 @@ public class DettaglioCiboActivity extends AppCompatActivity {
 					l.add(p);
 				}
 			}
-			CustomAdapter adapter = new CustomAdapter(this,R.layout.rowcustom,l);
+			AdapterProdottoNomePrezzo adapter = new AdapterProdottoNomePrezzo(this,R.layout.rowcustom,l);
 			listDettaglio.setAdapter(adapter);
 		}
 		catch (Exception e){

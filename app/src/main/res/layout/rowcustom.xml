@@ -7,19 +7,19 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textViewName"
+        android:id="@+id/textViewLeft"
         android:layout_width="280dp"
         android:layout_height="match_parent"
         android:layout_marginStart="26dp"
         android:layout_marginTop="2dp"
         android:text="ciao"
         android:textSize="26sp"
-        app:layout_constraintEnd_toStartOf="@+id/textViewPrice"
+        app:layout_constraintEnd_toStartOf="@+id/textViewRight"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewPrice"
+        android:id="@+id/textViewRight"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="ciao"

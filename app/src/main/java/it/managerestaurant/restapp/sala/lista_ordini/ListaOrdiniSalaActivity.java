@@ -15,7 +15,7 @@ import org.json.JSONArray;
 
 import java.util.ArrayList;
 
-import it.managerestaurant.restapp.Oggetti_da_db.Ordine;
+import it.managerestaurant.restapp.utility.Ordine;
 import it.managerestaurant.restapp.R;
 import it.managerestaurant.restapp.task_html.AsyncTaskGet;
 

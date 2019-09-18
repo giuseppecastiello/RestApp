@@ -1,4 +1,4 @@
-package it.managerestaurant.restapp.Oggetti_da_db;
+package it.managerestaurant.restapp.utility;
 
 public class Prodotto {
 	int idp;

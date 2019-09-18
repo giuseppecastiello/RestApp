@@ -8,7 +8,7 @@ import android.view.View;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import it.managerestaurant.restapp.Oggetti_da_db.Ordine;
+import it.managerestaurant.restapp.utility.Ordine;
 import it.managerestaurant.restapp.R;
 import it.managerestaurant.restapp.sala.nuovo_ordine.bevande.BevandeActivity;
 import it.managerestaurant.restapp.sala.nuovo_ordine.cibo.CiboActivity;
