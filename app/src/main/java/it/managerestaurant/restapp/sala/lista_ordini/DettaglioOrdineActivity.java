@@ -30,7 +30,7 @@ public class DettaglioOrdineActivity extends AppCompatActivity {
 		ntavolo = getIntent().getExtras().getInt("ntavolo");
 		TextView dettaglioOrdineTitle = findViewById(R.id.dettaglioOrdineTitle);
 		dettaglioOrdineTitle.setText(String.format("Dettaglio ordine del tavolo %d", ntavolo));
-		final ListView listDettaglio = findViewById(R.id.listDettaglioOrdine);
+		final ListView listDettaglio = findViewById(R.id.listDettaglioOrdine); //RITORNA NULL
 		fillList(listDettaglio);
 		listDettaglio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
