@@ -7,8 +7,9 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,16 +20,16 @@ import org.json.JSONArray;
 
 import java.util.ArrayList;
 
-import it.managerestaurant.restapp.utility.AdapterProdottoNomePrezzo;
-import it.managerestaurant.restapp.utility.Prodotto;
 import it.managerestaurant.restapp.R;
 import it.managerestaurant.restapp.task_html.AsyncTaskGet;
 import it.managerestaurant.restapp.task_html.AsyncTaskPost;
+import it.managerestaurant.restapp.utility.Prodotto;
 
 public class DettaglioCiboActivity extends AppCompatActivity {
-	String tipo;
 	int ntavolo;
+	String tipo;
 	Prodotto prodotto;
+	ArrayList<Prodotto> listProdotti;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +39,12 @@ public class DettaglioCiboActivity extends AppCompatActivity {
 		ntavolo = getIntent().getExtras().getInt("ntavolo");
 		TextView dettaglioCiboTitle = findViewById(R.id.dettaglioCiboTitle);
 		dettaglioCiboTitle.setText(tipo);
-		final ListView listDettaglio = findViewById(R.id.listDettaglioCibo);
-		fillList(listDettaglio);
-		listDettaglio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+		final GridView gridDettaglio = findViewById(R.id.gridDettaglioCibo);
+		fillGrid(gridDettaglio);
+		gridDettaglio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> adattatore, final View componente, int pos, long id){
-				 prodotto = (Prodotto) adattatore.getItemAtPosition(pos);
+				prodotto = listProdotti.get(pos/2);
 				showAddQuantitaDialog(DettaglioCiboActivity.this);
 			}
 		});
@@ -55,7 +56,7 @@ public class DettaglioCiboActivity extends AppCompatActivity {
 		return tipo.replace(" ","_");
 	}
 
-	private void fillList(ListView listDettaglio) {
+	private void fillGrid(GridView gridDettaglio) {
 		AsyncTaskGet task = new AsyncTaskGet();
 		task.setUri(String.format("prodotto/%s", uriTipo(tipo)));
 		task.execute();
@@ -64,17 +65,19 @@ public class DettaglioCiboActivity extends AppCompatActivity {
 				Thread.sleep(100);
 			}
 			JSONArray jsArr = new JSONArray(task.json);
-			ArrayList<Prodotto> l = new ArrayList<>();
-			Prodotto p;
+			listProdotti = new ArrayList<>();
+			ArrayList<String> l = new ArrayList<>();
 			ObjectMapper om = new ObjectMapper();
 			if (jsArr != null) {
 				for (int i = 0; i < jsArr.length(); i++){
-					p = om.readValue(jsArr.get(i).toString(),Prodotto.class);
-					l.add(p);
+					prodotto = om.readValue(jsArr.get(i).toString(),Prodotto.class);
+					listProdotti.add(prodotto);
+					l.add(prodotto.getNome());
+					l.add(Double.toString(prodotto.getPrezzo()));
 				}
 			}
-			AdapterProdottoNomePrezzo adapter = new AdapterProdottoNomePrezzo(this,R.layout.rowcustom,l);
-			listDettaglio.setAdapter(adapter);
+			ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,l);
+			gridDettaglio.setAdapter(adapter);
 		}
 		catch (Exception e){
 			e.printStackTrace();
@@ -109,7 +112,7 @@ public class DettaglioCiboActivity extends AppCompatActivity {
 	private void showInputErrorDialog(Context c){
 		AlertDialog.Builder dialog = new AlertDialog.Builder(c);
 		dialog.setTitle("Errore")
-				.setMessage("La quantità deve essere positiva")
+				.setMessage("La quantità deve essere strettamente positiva")
 				.setPositiveButton("Ok", null)
 				.create()
 				.show();

@@ -58,6 +58,7 @@ public class ListaOrdiniSalaActivity extends AppCompatActivity {
                 }
             }
             ArrayAdapter<Ordine> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,l);
+            System.out.println(adapter);
             listDettaglio.setAdapter(adapter);
         }
         catch (Exception e){

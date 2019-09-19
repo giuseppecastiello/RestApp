@@ -15,9 +15,11 @@ import org.json.JSONArray;
 
 import java.util.ArrayList;
 
-import it.managerestaurant.restapp.utility.Prodotto;
 import it.managerestaurant.restapp.R;
+import it.managerestaurant.restapp.task_html.AsyncTaskDelete;
 import it.managerestaurant.restapp.task_html.AsyncTaskGet;
+import it.managerestaurant.restapp.utility.Ordine;
+import it.managerestaurant.restapp.utility.Prodotto;
 
 public class DettaglioOrdineActivity extends AppCompatActivity {
 	int ntavolo;
@@ -40,6 +42,23 @@ public class DettaglioOrdineActivity extends AppCompatActivity {
 	}
 
 	public void openListaOrdiniSala(View view){ this.finish();}
+
+	public void rimuoviOrdine(View view){
+		AsyncTaskDelete task = new AsyncTaskDelete();
+		task.setUri(String.format("ordine/delete/%d",ntavolo));
+		task.execute();
+		final ListView listOrdini = findViewById(R.id.listOrdiniSala);
+		try {
+			while (!task.ready) {
+				Thread.sleep(100);
+			}
+		}
+		catch (Exception e){
+			e.printStackTrace();
+		}
+		fillListOrdine(listOrdini);
+		this.finish();
+	}
 
 	private void fillList(ListView listDettaglio) {
 		AsyncTaskGet taskp = new AsyncTaskGet();
@@ -87,6 +106,30 @@ public class DettaglioOrdineActivity extends AppCompatActivity {
 			else
 				System.out.println("Error in size of items");
 			ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,l);
+			listDettaglio.setAdapter(adapter);
+		}
+		catch (Exception e){
+			e.printStackTrace();
+		}
+	}
+	private void fillListOrdine(ListView listDettaglio) {
+		AsyncTaskGet task = new AsyncTaskGet();
+		task.setUri("/ordine_corrente");
+		task.execute();
+		try {
+			while (!task.ready) {
+				Thread.sleep(100);
+			}
+			JSONArray jsArr = new JSONArray(task.json);
+			ArrayList<Ordine> l = new ArrayList<>();
+			Ordine o;
+			ObjectMapper om = new ObjectMapper();
+			for (int i = 0; i < jsArr.length(); i++) {
+				o = om.readValue(jsArr.get(i).toString(), Ordine.class);
+				l.add(o);
+			}
+			ArrayAdapter<Ordine> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,l);
+			System.out.println(listDettaglio);
 			listDettaglio.setAdapter(adapter);
 		}
 		catch (Exception e){
