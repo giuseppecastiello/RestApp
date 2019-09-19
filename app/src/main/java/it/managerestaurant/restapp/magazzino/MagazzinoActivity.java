@@ -24,6 +24,7 @@ public class MagazzinoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_magazzino);
         final GridView grid_prodotti = findViewById(R.id.grid_prodotti);
+
         fillGrid(grid_prodotti);
         /*prodottilist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
