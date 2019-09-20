@@ -52,10 +52,10 @@ public class NuovoScontrinoActivity extends AppCompatActivity {
 
     private void fillListOrdine(GridView listDettaglio, String ntavolo) {
         AsyncTaskGet taskp = new AsyncTaskGet();
-        taskp.setUri(String.format("/mostra_ordine/prodotto/%s", ntavolo));
+        taskp.setUri(String.format("mostra_ordine/prodotto/%s", ntavolo));
         taskp.execute();
         AsyncTaskGet taskq = new AsyncTaskGet();
-        taskq.setUri(String.format("/mostra_ordine/quantita/%s", ntavolo));
+        taskq.setUri(String.format("mostra_ordine/quantita/%s", ntavolo));
         taskq.execute();
         ArrayList<Prodotto> lp = new ArrayList<>();
         ArrayList<Integer> lq = new ArrayList<>();
@@ -110,7 +110,7 @@ public class NuovoScontrinoActivity extends AppCompatActivity {
 
     private void inserisci_scontrino(String ntavolo) {
         AsyncTaskPost task = new AsyncTaskPost();
-        task.setUri(String.format("/scontrino/add/" + ntavolo));
+        task.setUri(String.format("scontrino/add/" + ntavolo));
         task.execute();
         try {
             while (!task.ready) {
@@ -124,7 +124,7 @@ public class NuovoScontrinoActivity extends AppCompatActivity {
     //NON FUNZIONA SOLO QUESTA
     private void fillGridscontrini(GridView gridDettaglio, String ntavolo) {
             AsyncTaskGet taskq = new AsyncTaskGet();
-            taskq.setUri(String.format("/scontrino/one/" + ntavolo));
+            taskq.setUri(String.format("scontrino/one/" + ntavolo));
             taskq.execute();
             ArrayList<String> l = new ArrayList<>();
             /*l.add("Numero     Id \n" + "tavolo      cam");
@@ -160,7 +160,7 @@ public class NuovoScontrinoActivity extends AppCompatActivity {
 
     private void elimina_ordine(String ntavolo) {
         AsyncTaskDelete task = new AsyncTaskDelete();
-        task.setUri(String.format("/ordine/delete/" + ntavolo));
+        task.setUri(String.format("ordine/delete/" + ntavolo));
         task.execute();
         try {
             while (!task.ready) {
