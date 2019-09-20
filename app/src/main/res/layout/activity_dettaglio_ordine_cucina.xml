@@ -29,11 +29,10 @@
         android:contentDescription="TODO" />
 
     <TextView
-        android:id="@+id/listaordinicucinaTitle"
+        android:id="@+id/dettaglioOrdineCucinaTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:text="Lista ordini"
         android:textColor="@color/colorAccent"
         android:textSize="22sp"
         android:textStyle="normal|bold"
@@ -41,13 +40,31 @@
         app:layout_constraintStart_toEndOf="@+id/backImageView"
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
+    <ListView
+        android:id="@+id/listDettaglioOrdineCucina"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="332dp"
-        android:text="TextView"
+        android:layout_marginStart="24dp"
+        android:text="Nome del piatto:"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

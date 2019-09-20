@@ -56,7 +56,7 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".cucina.ListaOrdiniCucinaActivity"
+            android:name=".cucina.DettaglioOrdineCucinaActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
