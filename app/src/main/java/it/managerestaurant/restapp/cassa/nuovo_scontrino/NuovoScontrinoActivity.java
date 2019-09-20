@@ -86,7 +86,12 @@ public class NuovoScontrinoActivity extends AppCompatActivity {
                 }
             }
             if (lp.size()==lq.size()){
-                for (int i=0;i<lp.size();i++){ l.add(lp.get(i).getNome() + "  x" + lq.get(i));	}
+                for (int i=0;i<lp.size();i++){
+                    l.add(lp.get(i).getNome());
+                    l.add("  x" + lq.get(i));
+                    double prezzo = lp.get(i).getPrezzo() * lq.get(i);
+                    l.add(String.format(prezzo+ "€"));
+                }
             }
             else
                 System.out.println("Error in size of items");
@@ -122,12 +127,16 @@ public class NuovoScontrinoActivity extends AppCompatActivity {
                 while (!taskq.ready) {
                     Thread.sleep(100);
                 }
-                JSONArray jsArr = new JSONArray(taskq.json);
+                //JSONArray jsArr = new JSONArray(taskq.json);
+                String json = taskq.json;
                 ObjectMapper om = new ObjectMapper();
-                if (jsArr != null) {
+                /*if (jsArr != null) {
                     for (int i = 0; i < jsArr.length(); i++){
                         s = om.readValue(jsArr.get(i).toString(),Scontrino.class);
                     }
+                }*/
+                if (json != null) {
+                    s = om.readValue(json, Scontrino.class);
                 }
                 l.add(String.format(s.getNtavolo() + "          -          "+ s.getIdcameriere()));
                 l.add(String.format(s.getDatachiusura()));
