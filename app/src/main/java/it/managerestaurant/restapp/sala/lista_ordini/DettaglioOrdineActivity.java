@@ -114,7 +114,7 @@ public class DettaglioOrdineActivity extends AppCompatActivity {
 	}
 	private void fillListOrdine(ListView listDettaglio) {
 		AsyncTaskGet task = new AsyncTaskGet();
-		task.setUri("/ordine_corrente");
+		task.setUri("ordine_corrente");
 		task.execute();
 		try {
 			while (!task.ready) {
