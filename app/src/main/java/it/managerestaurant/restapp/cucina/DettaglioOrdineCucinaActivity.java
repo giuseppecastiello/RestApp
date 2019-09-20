@@ -1,6 +1,5 @@
 package it.managerestaurant.restapp.cucina;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,9 +18,13 @@ import java.util.ArrayList;
 import it.managerestaurant.restapp.R;
 import it.managerestaurant.restapp.task_html.AsyncTaskGet;
 import it.managerestaurant.restapp.task_html.AsyncTaskPut;
+import it.managerestaurant.restapp.utility.Ordine;
 import it.managerestaurant.restapp.utility.Prodotto;
 
+import static it.managerestaurant.restapp.cucina.CucinaActivity.textNumeroTavolo;
+
 public class DettaglioOrdineCucinaActivity extends AppCompatActivity {
+    ArrayAdapter<String> adapter;
     int ntavolo;
     ArrayList<Prodotto> lp;
     @Override
@@ -42,8 +45,8 @@ public class DettaglioOrdineCucinaActivity extends AppCompatActivity {
         });
     }
     public void openCucina(View view){
-        Intent openCucina = new Intent(this, CucinaActivity.class);
-        startActivity(openCucina);
+        fillListCucina(CucinaActivity.listOrdini);
+        this.finish();
     }
     private void prodPronto(Prodotto prodotto, ListView listDettaglio){
         AsyncTaskPut task = new AsyncTaskPut();
@@ -104,8 +107,36 @@ public class DettaglioOrdineCucinaActivity extends AppCompatActivity {
             }
             else
                 System.out.println("Error in size of items");
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,l);
+            adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,l);
             listDettaglio.setAdapter(adapter);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    protected void fillListCucina(ListView listOrdini) {
+        AsyncTaskGet task = new AsyncTaskGet();
+        task.setUri("ordine_in_preparazione");
+        task.execute();
+        try {
+            while (!task.ready) {
+                Thread.sleep(100);
+            }
+            JSONArray jsArr = new JSONArray(task.json);
+            ArrayList<Ordine> l = new ArrayList<>();
+            Ordine o;
+            ObjectMapper om = new ObjectMapper();
+            if (jsArr != null) {
+                for (int i = 0; i < jsArr.length(); i++){
+                    o = om.readValue(jsArr.get(i).toString(),Ordine.class);
+                    l.add(o);
+                }
+            }
+            ArrayAdapter<Ordine> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,l);
+            listOrdini.setAdapter(adapter);
+            if (l.isEmpty()){
+                textNumeroTavolo.setText("Al momento non ci sono ordini da preparare.");
+            }
         }
         catch (Exception e){
             e.printStackTrace();

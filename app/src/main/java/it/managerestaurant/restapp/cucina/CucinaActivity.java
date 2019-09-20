@@ -24,13 +24,14 @@ import it.managerestaurant.restapp.utility.Ordine;
 public class CucinaActivity extends AppCompatActivity {
     static ListView listOrdini;
     static TextView textNumeroTavolo;
+    static ArrayAdapter<Ordine> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cucina);
         listOrdini = findViewById(R.id.listOrdiniCucina);
         textNumeroTavolo = findViewById(R.id.textNumeroTavoloCucina);
-        fillList(listOrdini);
+        fillListCucina(listOrdini);
         listOrdini.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adattatore, final View componente, int pos, long id) {
@@ -45,7 +46,7 @@ public class CucinaActivity extends AppCompatActivity {
         this.finish();
     }
 
-    private void fillList(ListView listOrdini) {
+    protected void fillListCucina(ListView listOrdini) {
         AsyncTaskGet task = new AsyncTaskGet();
         task.setUri("ordine_in_preparazione");
         task.execute();
@@ -63,10 +64,10 @@ public class CucinaActivity extends AppCompatActivity {
                     l.add(o);
                 }
             }
-            ArrayAdapter<Ordine> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,l);
+            adapter = new ArrayAdapter<>(CucinaActivity.this,android.R.layout.simple_list_item_1,l);
             listOrdini.setAdapter(adapter);
             if (l.isEmpty()){
-                textNumeroTavolo.setText("Al momento non ci sono ordini.");
+                textNumeroTavolo.setText("Al momento non ci sono ordini da preparare.");
             }
         }
         catch (Exception e){
