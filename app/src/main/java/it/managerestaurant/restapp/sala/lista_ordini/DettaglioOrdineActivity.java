@@ -26,11 +26,11 @@ public class DettaglioOrdineActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_dettaglio_ordine);
+		setContentView(R.layout.activity_dettaglio_ordine_sala);
 		ntavolo = getIntent().getExtras().getInt("ntavolo");
 		TextView dettaglioOrdineTitle = findViewById(R.id.dettaglioOrdineTitle);
 		dettaglioOrdineTitle.setText(String.format("Dettaglio ordine del tavolo %d", ntavolo));
-		final ListView listDettaglio = findViewById(R.id.listDettaglioOrdine); //RITORNA NULL
+		final ListView listDettaglio = findViewById(R.id.listDettaglioOrdine);
 		fillList(listDettaglio);
 		listDettaglio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
@@ -47,7 +47,6 @@ public class DettaglioOrdineActivity extends AppCompatActivity {
 		AsyncTaskDelete task = new AsyncTaskDelete();
 		task.setUri(String.format("ordine/delete/%d",ntavolo));
 		task.execute();
-		final ListView listOrdini = findViewById(R.id.listOrdiniSala);
 		try {
 			while (!task.ready) {
 				Thread.sleep(100);
@@ -56,7 +55,7 @@ public class DettaglioOrdineActivity extends AppCompatActivity {
 		catch (Exception e){
 			e.printStackTrace();
 		}
-		fillListOrdine(listOrdini);
+		fillListOrdine(ListaOrdiniSalaActivity.listOrdini);
 		this.finish();
 	}
 
@@ -114,7 +113,7 @@ public class DettaglioOrdineActivity extends AppCompatActivity {
 	}
 	private void fillListOrdine(ListView listDettaglio) {
 		AsyncTaskGet task = new AsyncTaskGet();
-		task.setUri("/ordine_corrente");
+		task.setUri("ordine_corrente");
 		task.execute();
 		try {
 			while (!task.ready) {
@@ -129,8 +128,10 @@ public class DettaglioOrdineActivity extends AppCompatActivity {
 				l.add(o);
 			}
 			ArrayAdapter<Ordine> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,l);
-			System.out.println(listDettaglio);
 			listDettaglio.setAdapter(adapter);
+			if (l.isEmpty()){
+				ListaOrdiniSalaActivity.textNumeroTavolo.setText("Al momento non ci sono ordini.");
+			}
 		}
 		catch (Exception e){
 			e.printStackTrace();
