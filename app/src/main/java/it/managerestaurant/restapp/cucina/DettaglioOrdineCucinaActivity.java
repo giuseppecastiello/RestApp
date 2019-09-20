@@ -24,7 +24,6 @@ import it.managerestaurant.restapp.utility.Prodotto;
 import static it.managerestaurant.restapp.cucina.CucinaActivity.textNumeroTavolo;
 
 public class DettaglioOrdineCucinaActivity extends AppCompatActivity {
-    ArrayAdapter<String> adapter;
     int ntavolo;
     ArrayList<Prodotto> lp;
     @Override
@@ -107,7 +106,7 @@ public class DettaglioOrdineCucinaActivity extends AppCompatActivity {
             }
             else
                 System.out.println("Error in size of items");
-            adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,l);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,l);
             listDettaglio.setAdapter(adapter);
         }
         catch (Exception e){
