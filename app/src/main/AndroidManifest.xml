@@ -91,6 +91,18 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".cassa.lista_scontrini.ListaScontriniActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+        android:name=".cassa.nuovo_scontrino.NuovoScontrinoActivity"
+        android:theme="@style/AppTheme.NoActionBar"
+        android:launchMode="singleTask"
+        android:screenOrientation="portrait">
+    </activity>
     </application>
 
 </manifest>

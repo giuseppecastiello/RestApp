@@ -1,9 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <Button
+        android:id="@+id/listaScontriniBtn"
+        android:layout_width="215dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="60dp"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="openListaScotrini"
+        android:text="Lista scontrini"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/listascontriniImageView3"
+        app:layout_constraintStart_toStartOf="@+id/listascontriniImageView3"
+        app:layout_constraintTop_toBottomOf="@+id/listascontriniImageView3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/listascontriniImageView3"
+        android:layout_width="218dp"
+        android:layout_height="205dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="TODO"
+        android:onClick="openListaScotrini"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline7"
+        app:srcCompat="@drawable/button_list" />
+
+    <Button
+        android:id="@+id/nuovoScontrinoBtn"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="openNuovoScontrino"
+        android:text="Nuovo scontrino"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toEndOf="@+id/scontrinoImageView4"
+        app:layout_constraintStart_toStartOf="@+id/scontrinoImageView4"
+        app:layout_constraintTop_toBottomOf="@+id/scontrinoImageView4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/scontrinoImageView4"
+        android:layout_width="231dp"
+        android:layout_height="205dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="80dp"
+        android:contentDescription="TODO"
+        android:onClick="openNuovoScontrino"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/ciboButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/button_add" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -11,6 +72,7 @@
         android:layout_height="46dp"
         android:background="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/AppTheme.PopupOverlay" />
@@ -20,12 +82,12 @@
         android:layout_width="24dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
+        android:contentDescription="TODO"
         android:onClick="openMain"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:srcCompat="@drawable/freccia_indietro"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/freccia_indietro" />
 
     <TextView
         android:id="@+id/cassaTitle"
@@ -40,18 +102,11 @@
         app:layout_constraintStart_toEndOf="@+id/backImageView"
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="169dp"
-        android:layout_marginTop="313dp"
-        android:layout_marginEnd="183dp"
-        android:layout_marginBottom="399dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.52" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
