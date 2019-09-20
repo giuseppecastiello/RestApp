@@ -1,5 +1,6 @@
 package it.managerestaurant.restapp.cassa.nuovo_scontrino;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,9 @@ import org.json.JSONArray;
 
 import java.util.ArrayList;
 
+import it.managerestaurant.restapp.MainActivity;
 import it.managerestaurant.restapp.R;
+import it.managerestaurant.restapp.cucina.CucinaActivity;
 import it.managerestaurant.restapp.task_html.AsyncTaskDelete;
 import it.managerestaurant.restapp.task_html.AsyncTaskGet;
 import it.managerestaurant.restapp.task_html.AsyncTaskPost;
@@ -41,9 +44,11 @@ public class NuovoScontrinoActivity extends AppCompatActivity {
         fillGridscontrini(grid_scontrini1,ntavoloString); //mostra scontrino
         elimina_ordine(ntavoloString); //cancella ordine correlato
     }
-    /*public void openMain(View view){
+    public void openMain(View view){
         this.finish();
-    }*/
+        Intent openmain = new Intent(this, MainActivity.class);
+        startActivity(openmain);
+    }
 
     private void fillListOrdine(GridView listDettaglio, String ntavolo) {
         AsyncTaskGet taskp = new AsyncTaskGet();
@@ -122,6 +127,9 @@ public class NuovoScontrinoActivity extends AppCompatActivity {
             taskq.setUri(String.format("/scontrino/one/" + ntavolo));
             taskq.execute();
             ArrayList<String> l = new ArrayList<>();
+            /*l.add("Numero     Id \n" + "tavolo      cam");
+            l.add("Data");
+            l.add("Totale");*/
             Scontrino s = null;
             try {
                 while (!taskq.ready) {
