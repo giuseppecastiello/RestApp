@@ -2,8 +2,8 @@ package it.managerestaurant.restapp.sala.lista_ordini;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import it.managerestaurant.restapp.R;
 import it.managerestaurant.restapp.task_html.AsyncTaskDelete;
 import it.managerestaurant.restapp.task_html.AsyncTaskGet;
+import it.managerestaurant.restapp.utility.Contiene_prodotto;
 import it.managerestaurant.restapp.utility.Ordine;
-import it.managerestaurant.restapp.utility.Prodotto;
 
 public class DettaglioOrdineActivity extends AppCompatActivity {
 	int ntavolo;
@@ -30,15 +30,8 @@ public class DettaglioOrdineActivity extends AppCompatActivity {
 		ntavolo = getIntent().getExtras().getInt("ntavolo");
 		TextView dettaglioOrdineTitle = findViewById(R.id.dettaglioOrdineTitle);
 		dettaglioOrdineTitle.setText(String.format("Dettaglio ordine del tavolo %d", ntavolo));
-		final ListView listDettaglio = findViewById(R.id.listDettaglioOrdine);
-		fillList(listDettaglio);
-		listDettaglio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> adattatore, final View componente, int pos, long id){
-				//prodotto = (Prodotto) adattatore.getItemAtPosition(pos);
-				//showAddQuantitaDialog(DettaglioCiboActivity.this);
-			}
-		});
+		final GridView gridDettaglio = findViewById(R.id.gridDettaglioOrdine);
+		fillGrid(gridDettaglio);
 	}
 
 	public void openListaOrdiniSala(View view){ this.finish();}
@@ -59,53 +52,36 @@ public class DettaglioOrdineActivity extends AppCompatActivity {
 		this.finish();
 	}
 
-	private void fillList(ListView listDettaglio) {
-		AsyncTaskGet taskp = new AsyncTaskGet();
-		taskp.setUri(String.format("/mostra_ordine/prodotto/%d", ntavolo));
-		taskp.execute();
-		AsyncTaskGet taskq = new AsyncTaskGet();
-		taskq.setUri(String.format("/mostra_ordine/quantita/%d", ntavolo));
-		taskq.execute();
-		ArrayList<Prodotto> lp = new ArrayList<>();
-		ArrayList<Integer> lq = new ArrayList<>();
+	private void fillGrid(GridView gridDettaglio) {
+		AsyncTaskGet task = new AsyncTaskGet();
+		task.setUri(String.format("mostra_dettaglio_ordine/all/%d", ntavolo));
+		task.execute();
+		ArrayList<Contiene_prodotto> lcp = new ArrayList<>();
 		ArrayList<String> l = new ArrayList<>();
 		try {
-			while (!taskp.ready) {
+			while (!task.ready) {
 				Thread.sleep(100);
 			}
-			JSONArray jsArr = new JSONArray(taskp.json);
-			Prodotto p;
+			JSONArray jsArr = new JSONArray(task.json);
+			Contiene_prodotto cp;
 			ObjectMapper om = new ObjectMapper();
 			if (jsArr != null) {
-				for (int i = 0; i < jsArr.length(); i++){
-					p = om.readValue(jsArr.get(i).toString(),Prodotto.class);
-					lp.add(p);
+				for (int i = 0; i < jsArr.length(); i++) {
+					cp = om.readValue(jsArr.get(i).toString(), Contiene_prodotto.class);
+					lcp.add(cp);
 				}
 			}
-		}
-		catch (Exception e){
-			e.printStackTrace();
-		}
-		try {
-			while (!taskq.ready) {
-				Thread.sleep(100);
+			for (int i=0;i<lcp.size();i++){
+				String stato;
+				if (lcp.get(i).getPronto()==0)
+					stato = "-> In preparazione";
+				else
+					stato = "-> Pronto!";
+				l.add(lcp.get(i).getNome() + "  x" + lcp.get(i).getQuantita());
+				l.add(stato);
 			}
-			JSONArray jsArr = new JSONArray(taskq.json);
-			Integer q;
-			ObjectMapper om = new ObjectMapper();
-			if (jsArr != null) {
-				for (int i = 0; i < jsArr.length(); i++){
-					q = om.readValue(jsArr.get(i).toString(),int.class);
-					lq.add(q);
-				}
-			}
-			if (lp.size()==lq.size()){
-				for (int i=0;i<lp.size();i++){ l.add(lp.get(i).getNome() + "  x" + lq.get(i));	}
-			}
-			else
-				System.out.println("Error in size of items");
 			ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,l);
-			listDettaglio.setAdapter(adapter);
+			gridDettaglio.setAdapter(adapter);
 		}
 		catch (Exception e){
 			e.printStackTrace();

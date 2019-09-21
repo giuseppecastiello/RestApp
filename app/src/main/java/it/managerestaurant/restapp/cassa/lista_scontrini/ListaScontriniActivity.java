@@ -61,7 +61,7 @@ public class ListaScontriniActivity extends AppCompatActivity {
             }
             //riempo grid con nomi e giacenza
             for (int i=0;i<ls.size();i++){
-                l.add(String.format(ls.get(i).getNtavolo() + "          -          "+ ls.get(i).getIdcameriere()));
+                l.add(String.format(ls.get(i).getNtavolo() + "       -       "+ ls.get(i).getIdcameriere()));
                 l.add(String.format(ls.get(i).getDatachiusura()));
                 l.add(String.format("         "+ls.get(i).getTotale() + "€"));
             }

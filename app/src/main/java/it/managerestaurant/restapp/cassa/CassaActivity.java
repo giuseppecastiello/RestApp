@@ -55,6 +55,5 @@ public class CassaActivity extends AppCompatActivity {
                 .create();
         dialog1.show();
     }
-
 }
 
